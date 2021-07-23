@@ -1,0 +1,5 @@
+/dok-site-novo/*
+.docker
+
+!/dok-site-novo/Dockerfile
+!/dok-site-novo/vhost.conf

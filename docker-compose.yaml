@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  database:
+    image: mysql:5.7
+    container_name: database
+    restart: always
+    volumes:
+      - .docker/mysql:/var/lib/mysql
+    env_file:
+      - .env
+    ports: 
+      - "3306:3306"
+  dok_site_novo:
+    build: ./dok-site-novo
+    volumes:
+      - ./dok-site-novo:/var/www/html
+    container_name: dok_site_novo
+    env_file:
+      - .env
+    ports:
+      - 8080:80
+    depends_on:
+      - database
