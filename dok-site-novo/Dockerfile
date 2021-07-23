@@ -27,8 +27,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash \
     && apt-get install nodejs -y
 
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"
+RUN a2enmod rewrite
+RUN a2ensite default-ssl
+RUN a2enmod ssl
+
 COPY . /var/www/html
 RUN chmod -R 777 /var/www/html/storage/*
-
-# RUN chown -R www-data:www-data /var/www/html \
-#     && a2enmod rewrite
