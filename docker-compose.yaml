@@ -8,12 +8,12 @@ services:
       - .docker/mysql:/var/lib/mysql
     env_file:
       - .env
-    ports: 
-      - "3306:3306"
+    ports:
+      - "3307:3306"
   dok_site_novo:
     build: ./dok-site-novo
     volumes:
-      - ./dok-site-novo:/var/www/html
+      - ./dok-site-novo/dok-site-novo:/var/www/html
     container_name: dok_site_novo
     env_file:
       - .env
