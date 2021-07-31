@@ -2,11 +2,13 @@
 ## Projetos **DOK Despachante** em ambiente **docker**
 
 <br>
+<p float="left">
 <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
 <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white">
 <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white">
-<br><br><br>
+</p>
+<br>
 
 <!-- GETTING STARTED -->
 ## Começando:
