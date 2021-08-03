@@ -29,6 +29,8 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
    ```sh
    git clone https://github.com/caioliveira277/docker-dok.git
    ```
+   <br>
+   
 2. Clone os projetos em suas pastas correspondentes:
     >***Exemplo***: <br>
     O projeto dok-site-novo será clonado na pasta dok-site-novo representado na estrutura abaixo
@@ -46,7 +48,7 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     └── README.md
     ```
     <small>***Estrutura de pastas do projeto***</small>
-    <br><br>
+    <br>
     
 3. Configurando o `.env` do projeto: <br>
     Dentro da pasta do projeto clonado, você encontrará um arquivo chamado `.env.example`, **copie o conteúdo** salvando em um **novo arquivo** chamado `.env` e siga as etapas abaixo:
@@ -67,7 +69,6 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     ><small>***Exemplo para o host dok.site***</small>
     <br>
 
-    <br>
 4. Inicializando os **containers**: <br>
     Na **raiz desse projeto**, onde encontra-se o arquivo `docker-compose.yaml`, rode o comando abaixo para inicializar os containers configurados:
     ```sh
@@ -76,8 +77,6 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     >***Obs:*** <br>
     >1- A flag `-d` utilizada no comando acima, representa a execução do projeto em modo **daemon**, isso significa que ele rodará em background no sistema operacional. <br><br>
     >2- A flag `--build` pode ser usada caso haja alguma alteração nos arquivos `Dockerfile`, fazendo a reconstrução do container, lendo as novas alterações.
-    <br>
-
     <br>
 
 5. Projetos em execução: 🚀<br>
@@ -116,31 +115,23 @@ Enfim, containers rodando e agora nos resta realizar as configurações específ
     ><small>******</small>
     <br>
 
-    <br>
-
-3. Gerando **key**:<br>
+3. Gerando a **key** do projeto:<br>
     Execute o comando para gerar a chave necessária de aplicações **laravel**
     ```sh
     php artisan key:generate 
     ```
     <br>
 
-    <br>
-
-4. Definindo permissão dos logs<br>
+4. Definindo permissão dos logs:<br>
     Execute o comando para definir a permissão de escrita e leitura aos arquivos de logs do **laravel**
     ```sh
     chmod -R 777 /var/www/html/storage/
     ```
     <br>
 
-    <br>
-
-5. Definindo permissão dos logs<br>
+5. Compilando **assets** do projeto:<br>
     Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
     ```sh
     npm run watch
     ```
-    <br>
-
     <br>
