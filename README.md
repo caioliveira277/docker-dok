@@ -80,7 +80,7 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     <br>
 
 5. Projetos em execução: 🚀<br>
-    Ao executar o comando da **etapa 4**, será apresentado logs de execução informando se ocorreu tudo bem durante o processo. Isso significa que você poderá partir para a configuração específica de cada projeto, tendo disponível as ferramentas necessárias para funcionamento. **Ex**: `composer, php, node, npm...`
+    Ao executar o comando da **etapa 4**, será apresentado logs de execução informando se tudo ocorreu bem durante o processo. Isso significa que você poderá partir para a configuração específica de cada projeto, tendo disponível as ferramentas necessárias para funcionamento. **Ex**: `composer, php, node, npm...`
     <br>
 
     <br>
