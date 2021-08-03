@@ -23,7 +23,7 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
 * **Docker Compose** 🐳<br>
   [Guia de instalação docker compose](https://docs.docker.com/compose/install/).
 
-### Instalação geral dos projetos
+### Instalando projetos
 
 1. Clone o repositório:
    ```sh
@@ -37,10 +37,9 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     ├── .docker
     │   └── mysql
     ├── dok-site-novo
-    │   ├── dok-site-novo [projeto]
+    │   ├── dok-site-novo *projeto*
     │   ├── Dockerfile
     │   └── vhost.conf
-    ├── dok-site-novo
     ├── .env
     ├── .gitignore
     ├── docker-compose.yaml
@@ -50,10 +49,9 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     <br><br>
     
 3. Configurando o `.env` do projeto: <br>
-    Após clonar o projeto na sua devida pasta, crie o arquivo `.env` requerido pelo **laravel** em sua configuração inicial. <br>
-    **Copie** o conteúdo do `.env.exemple` para o `.env` e faça as alterações em abaixo:
+    Dentro da pasta do projeto clonado, você encontrará um arquivo chamado `.env.example`, **copie o conteúdo** salvando em um **novo arquivo** chamado `.env` e siga as etapas abaixo:
 
-    >Substitua as variaveis de conexão do banco de dados para as variaveis apresentadas abaixo:
+    >Substitua os parametros de conexão do banco, para o representado abaixo:
     >```sh
     >DB_HOST=${DB_HOST}
     >DB_PORT=${DB_PORT}
@@ -61,12 +59,88 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     >DB_USERNAME=${DB_USERNAME}
     >DB_PASSWORD=${DB_PASSWORD}
     >```
-    > Altere as variáveis abaixo de acordo com o seu host configurado:
+    > Altere a **url da aplicação** de acordo com o seu host configurado:
     >```sh
     >APP_URL=http://dok.site
     >APP_DOMAIN=dok.site
     >```
     ><small>***Exemplo para o host dok.site***</small>
+    <br>
+
+    <br>
+4. Inicializando os **containers**: <br>
+    Na **raiz desse projeto**, onde encontra-se o arquivo `docker-compose.yaml`, rode o comando abaixo para inicializar os containers configurados:
+    ```sh
+    docker-compose up -d
+    ```
+    >***Obs:*** <br>
+    >1- A flag `-d` utilizada no comando acima, representa a execução do projeto em modo **daemon**, isso significa que ele rodará em background no sistema operacional. <br><br>
+    >2- A flag `--build` pode ser usada caso haja alguma alteração nos arquivos `Dockerfile`, fazendo a reconstrução do container, lendo as novas alterações.
+    <br>
 
     <br>
 
+5. Projetos em execução: 🚀<br>
+    Ao executar o comando da **etapa 4**, será apresentado logs de execução informando se ocorreu tudo bem durante o processo. Isso significa que você poderá partir para a configuração específica de cada projeto, tendo disponível as ferramentas necessárias para funcionamento. **Ex**: `composer, php, node, npm...`
+    <br>
+
+    <br>
+
+
+### Configurando projetos:
+
+Enfim, containers rodando e agora nos resta realizar as configurações específicas de cada projeto instalado que será descrito nas etapas abaixo.
+>**Obs:** <br>
+>Abaixo, estarei utilizando como exemplo o projeto **dok-site-novo** para realizar a configuração.
+
+1. Acessando o terminal do container<br>
+    Execute o comando abaixo para acessar o terminal do container pelo nome definido:
+    ```sh
+    docker exec -i -t dok_site_novo /bin/bash
+    ```
+    <br>
+
+2. Instalando dependencias:<br>
+    >**Composer**<br>
+    >Execute o comando de instalação de dependencias do **php**
+    >```sh
+    >composer install
+    >```
+    ><small>******</small>
+
+    >**NPM**<br>
+    >Execute o comando de instalação de dependencias do **node**
+    >```sh
+    >npm install
+    >```
+    ><small>******</small>
+    <br>
+
+    <br>
+
+3. Gerando **key**:<br>
+    Execute o comando para gerar a chave necessária de aplicações **laravel**
+    ```sh
+    php artisan key:generate 
+    ```
+    <br>
+
+    <br>
+
+4. Definindo permissão dos logs<br>
+    Execute o comando para definir a permissão de escrita e leitura aos arquivos de logs do **laravel**
+    ```sh
+    chmod -R 777 /var/www/html/storage/
+    ```
+    <br>
+
+    <br>
+
+5. Definindo permissão dos logs<br>
+    Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
+    ```sh
+    npm run watch
+    ```
+    <br>
+
+    <br>
