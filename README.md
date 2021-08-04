@@ -66,7 +66,9 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     >APP_URL=http://dok.site
     >APP_DOMAIN=dok.site
     >```
-    ><small>***Exemplo para o host dok.site***</small>
+    ><small>******</small>
+    
+    <small>***Exemplo para o host dok.site***</small>
     <br>
 
 4. Inicializando os **containers**: <br>
@@ -122,16 +124,59 @@ Enfim, containers rodando e agora nos resta realizar as configurações específ
     ```
     <br>
 
-4. Definindo permissão dos logs:<br>
+4. Gerando estrutura do banco de dados<br>
+    Execute o comando para subir estrutura de tabelas do banco
+    ```sh
+    php artisan migrate
+    ```
+    <br>
+
+5. Definindo permissão dos logs:<br>
     Execute o comando para definir a permissão de escrita e leitura aos arquivos de logs do **laravel**
     ```sh
     chmod -R 777 /var/www/html/storage/
     ```
     <br>
 
-5. Compilando **assets** do projeto:<br>
+6. Compilando **assets** do projeto:<br>
     Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
     ```sh
     npm run watch
     ```
     <br>
+
+### Uso:
+
+Após a conclusão dos passos indicados acima, você terá todo o ambiente pronto para desenvolver onde será necessário somente, executar seus containers já configurados e gerenciados pelo **docker-compose**.<br>
+Abaixo listarei o processo comum para subir os containers e deixalos em modo de desenvolvimento. <br>
+
+>**Iniciando containers**<br>
+>Execute o comando do **docker-compose** para subir todos os containers configurados
+>```sh
+>docker-composer up -d
+>```
+><small>******</small>
+<br>
+
+>**Deixando projeto em modo desenvolvimento**<br>
+>Execute o comando para acessar o terminal do container desejado e em seguida execute o comando de modo desenvolvimento
+>```sh
+>docker exec -i -t dok_site_novo /bin/bash
+>```
+>```sh
+>npm run watch
+>```
+><small>******</small>
+<br>
+
+***Exemplo para o projeto dok-site-novo***
+
+
+## Time de desenvolvimento
+### **DOK Despachante**
+
+Site: [DOK Despachante](https://www.despachantedok.com.br/)
+
+## Licença
+
+Este projeto está licenciado sob a licença [MIT] - consulte o arquivo LICENSE.md para obter detalhes
