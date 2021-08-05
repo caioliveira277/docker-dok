@@ -22,3 +22,15 @@ services:
       - 443:443
     depends_on:
       - database
+  dok_checkout:
+    build: ./dok-checkout
+    volumes:
+      - ./dok-checkout/dok-checkout:/var/www/html
+    container_name: dok_checkout
+    env_file:
+      - .env
+    ports:
+      - 81:80
+      - 444:443
+    depends_on:
+      - database
