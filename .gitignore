@@ -7,3 +7,7 @@
 /dok-checkout/*
 !/dok-checkout/Dockerfile
 !/dok-checkout/vhost.conf
+
+/dok-painel/*
+!/dok-painel/Dockerfile
+!/dok-painel/vhost.conf

@@ -34,3 +34,15 @@ services:
       - 444:443
     depends_on:
       - database
+  dok_painel:
+    build: ./dok-painel
+    volumes:
+      - ./dok-painel/dok-painel:/var/www/html
+    container_name: dok_painel
+    env_file:
+      - .env
+    ports:
+      - 82:80
+      - 445:443
+    depends_on:
+      - database
