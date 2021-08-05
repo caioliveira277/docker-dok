@@ -1,5 +1,9 @@
-/dok-site-novo/*
 .docker
 
+/dok-site-novo/*
 !/dok-site-novo/Dockerfile
 !/dok-site-novo/vhost.conf
+
+/dok-checkout/*
+!/dok-checkout/Dockerfile
+!/dok-checkout/vhost.conf
