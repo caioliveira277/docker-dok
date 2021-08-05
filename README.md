@@ -90,9 +90,9 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
 
 ### Configurando projetos:
 
-Enfim, containers rodando e agora nos resta realizar as configurações específicas de cada projeto instalado que será descrito nas etapas abaixo.
+Agora que os containers estão rodando, devemos realizar as configurações específicas de cada projeto instalado que será descrito nas etapas abaixo.
 >**Obs:** <br>
->Abaixo, estarei utilizando como exemplo o projeto **dok-site-novo** para realizar a configuração.
+>O exemplo abaixo utiliza como exemplo o projeto **dok-site-novo** para realizar a configuração.
 
 1. Acessando o terminal do container<br>
     Execute o comando abaixo para acessar o terminal do container pelo nome definido:
@@ -124,10 +124,13 @@ Enfim, containers rodando e agora nos resta realizar as configurações específ
     ```
     <br>
 
-4. Gerando estrutura do banco de dados<br>
-    Execute o comando para subir estrutura de tabelas do banco
+4. [**SOMENTE AO PROJETO DOK-SITE-NOVO**] Gerando estrutura do banco de dados:<br>
+    Execute o comando para subir estrutura de tabelas do banco e dados seeder
     ```sh
     php artisan migrate
+    ```
+    ```sh
+    php artisan db:seed
     ```
     <br>
 
@@ -147,8 +150,8 @@ Enfim, containers rodando e agora nos resta realizar as configurações específ
 
 ### Uso:
 
-Após a conclusão dos passos indicados acima, você terá todo o ambiente pronto para desenvolver onde será necessário somente, executar seus containers já configurados e gerenciados pelo **docker-compose**.<br>
-Abaixo listarei o processo comum para subir os containers e deixalos em modo de desenvolvimento. <br>
+Após a conclusão dos passos indicados acima, você terá um ambiente de desenvolvimento configurado e gerenciado pelo docker-compose para cada projeto.<br>
+Abaixo, segue os passos para subir os containers e deixá-los em modo de desenvolvimento:<br>
 
 >**Iniciando containers**<br>
 >Execute o comando do **docker-compose** para subir todos os containers configurados
