@@ -58,3 +58,15 @@ services:
       - 446:443
     depends_on:
       - database
+  dok_email-marketing:
+    build: ./dok-email-marketing
+    volumes:
+      - ./dok-email-marketing/dok-email-marketing:/var/www/html
+    container_name: dok_email-marketing
+    env_file:
+      - .env
+    ports:
+      - 84:80
+      - 447:443
+    depends_on:
+      - database
