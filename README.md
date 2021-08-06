@@ -22,6 +22,16 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
   [Guia de instalação docker](https://docs.docker.com/get-docker/).
 * **Docker Compose** 🐳<br>
   [Guia de instalação docker compose](https://docs.docker.com/compose/install/).
+* **Hosts:** 🌐<br>
+    Tenha o arquivo de **hosts** com as entradas abaixo:
+    ```vim
+    127.0.0.1       dok.site
+    127.0.0.1       dok.checkout
+    127.0.0.1       dok.painel
+    127.0.0.1       dok.consultas
+    ```
+    Caminho do arquivo no **Windows**: `C:\Windows\System32\drivers\etc`<br>
+    Caminho do arquivo no **Linux**: `/etc/hosts`<br>
 
 ### Instalando projetos
 
@@ -34,7 +44,7 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
 2. Clone os projetos em suas pastas correspondentes:
     >***Exemplo***: <br>
     O projeto dok-site-novo será clonado na pasta dok-site-novo representado na estrutura abaixo
-   ```shell
+   ```sh
     .
     ├── .docker
     │   └── mysql
@@ -60,11 +70,6 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     >DB_DATABASE=${DB_DATABASE}
     >DB_USERNAME=${DB_USERNAME}
     >DB_PASSWORD=${DB_PASSWORD}
-    >```
-    > Altere a **url da aplicação** de acordo com o seu host configurado:
-    >```sh
-    >APP_URL=http://dok.site
-    >APP_DOMAIN=dok.site
     >```
     ><small>******</small>
     

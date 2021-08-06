@@ -11,3 +11,7 @@
 /dok-painel/*
 !/dok-painel/Dockerfile
 !/dok-painel/vhost.conf
+
+/dok-consultas/*
+!/dok-consultas/Dockerfile
+!/dok-consultas/vhost.conf
