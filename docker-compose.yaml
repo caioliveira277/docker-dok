@@ -46,3 +46,15 @@ services:
       - 445:443
     depends_on:
       - database
+  dok_consultas:
+    build: ./dok-consultas
+    volumes:
+      - ./dok-consultas/dok-consultas:/var/www/html
+    container_name: dok_consultas
+    env_file:
+      - .env
+    ports:
+      - 83:80
+      - 446:443
+    depends_on:
+      - database
