@@ -15,3 +15,7 @@
 /dok-consultas/*
 !/dok-consultas/Dockerfile
 !/dok-consultas/vhost.conf
+
+/dok-email-marketing/*
+!/dok-email-marketing/Dockerfile
+!/dok-email-marketing/vhost.conf

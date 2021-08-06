@@ -29,6 +29,7 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     127.0.0.1       dok.checkout
     127.0.0.1       dok.painel
     127.0.0.1       dok.consultas
+    127.0.0.1       dok.email-marketing
     ```
     Caminho do arquivo no **Windows**: `C:\Windows\System32\drivers\etc`<br>
     Caminho do arquivo no **Linux**: `/etc/hosts`<br>
@@ -129,7 +130,8 @@ Agora que os containers estão rodando, devemos realizar as configurações espe
     ```
     <br>
 
-4. [**SOMENTE AO PROJETO DOK-SITE-NOVO**] Gerando estrutura do banco de dados:<br>
+4. Gerando estrutura do banco de dados:<br>
+    [**SOMENTE AO PROJETO `DOK-SITE-NOVO`**]<br>
     Execute o comando para subir estrutura de tabelas do banco e dados seeder
     ```sh
     php artisan migrate
@@ -147,6 +149,7 @@ Agora que os containers estão rodando, devemos realizar as configurações espe
     <br>
 
 6. Compilando **assets** do projeto:<br>
+    [**SOMENTE AOS PROJETOS `DOK-SITE-NOVO`, `DOK-CHECKOUT` E `DOK-PAINEL`**]<br>
     Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
     ```sh
     npm run watch
