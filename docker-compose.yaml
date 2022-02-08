@@ -1,5 +1,11 @@
 version: "3.8"
+networks:
+  dok_network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
 services:
+# início banco de dados
   database:
     image: mysql:5.7
     container_name: database
@@ -9,7 +15,10 @@ services:
     env_file:
       - .env
     ports:
-      - "3307:3306"
+      - "3306:3306"
+# fim banco de dados
+
+# início site
   dok_site_novo:
     build: ./dok-site-novo
     volumes:
@@ -20,8 +29,15 @@ services:
     ports:
       - 80:80
       - 443:443
+    hostname: dok.site
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.10
     depends_on:
       - database
+# fim site
+
+# início checkout
   dok_checkout:
     build: ./dok-checkout
     volumes:
@@ -32,8 +48,15 @@ services:
     ports:
       - 81:80
       - 444:443
+    hostname: dok.checkout
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.11
     depends_on:
       - database
+# fim checkout
+
+# início painel
   dok_painel:
     build: ./dok-painel
     volumes:
@@ -44,8 +67,15 @@ services:
     ports:
       - 82:80
       - 445:443
+    hostname: dok.painel
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.12
     depends_on:
       - database
+# fim painel
+
+# início consultas
   dok_consultas:
     build: ./dok-consultas
     volumes:
@@ -56,8 +86,15 @@ services:
     ports:
       - 83:80
       - 446:443
+    hostname: dok.consultas
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.13
     depends_on:
       - database
+# fim consultas
+
+# início email
   dok_email-marketing:
     build: ./dok-email-marketing
     volumes:
@@ -68,5 +105,29 @@ services:
     ports:
       - 84:80
       - 447:443
+    hostname: dok.email
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.14
     depends_on:
       - database
+# fim email
+
+# início seguros
+  dok_seguros:
+    build: ./dok-seguros
+    volumes:
+      - ./dok-seguros/dok-seguros:/var/www/html
+    container_name: dok_seguros
+    env_file:
+      - .env
+    ports:
+      - 85:80
+      - 447:443
+    hostname: dok.seguros
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.15
+    depends_on:
+      - database
+# fim seguros

@@ -25,11 +25,12 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
 * **Hosts:** 🌐<br>
     Tenha o arquivo de **hosts** com as entradas abaixo:
     ```vim
-    127.0.0.1       dok.site
-    127.0.0.1       dok.checkout
-    127.0.0.1       dok.painel
-    127.0.0.1       dok.consultas
-    127.0.0.1       dok.email-marketing
+    172.20.0.10       dok.site
+    172.20.0.11       dok.checkout
+    172.20.0.12       dok.painel
+    172.20.0.13       dok.consultas
+    172.20.0.14       dok.email-marketing
+    172.20.0.15       dok.seguros
     ```
     Caminho do arquivo no **Windows**: `C:\Windows\System32\drivers\etc`<br>
     Caminho do arquivo no **Linux**: `/etc/hosts`<br>
