@@ -16,6 +16,9 @@ services:
       - .env
     ports:
       - "3306:3306"
+    networks:
+      dok_network:
+        ipv4_address: 172.20.0.09
 # fim banco de dados
 
 # início site
