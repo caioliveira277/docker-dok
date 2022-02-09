@@ -32,9 +32,10 @@ services:
     ports:
       - 80:80
       - 443:443
-    hostname: dok.site
     networks:
       dok_network:
+        aliases: 
+          - dok.site
         ipv4_address: 172.20.0.10
     depends_on:
       - database
@@ -51,9 +52,10 @@ services:
     ports:
       - 81:80
       - 444:443
-    hostname: dok.checkout
     networks:
       dok_network:
+        aliases: 
+          - dok.checkout
         ipv4_address: 172.20.0.11
     depends_on:
       - database
@@ -70,9 +72,10 @@ services:
     ports:
       - 82:80
       - 445:443
-    hostname: dok.painel
     networks:
       dok_network:
+        aliases: 
+          - dok.painel
         ipv4_address: 172.20.0.12
     depends_on:
       - database
@@ -89,9 +92,10 @@ services:
     ports:
       - 83:80
       - 446:443
-    hostname: dok.consultas
     networks:
       dok_network:
+        aliases: 
+          - dok.consultas
         ipv4_address: 172.20.0.13
     depends_on:
       - database
@@ -108,9 +112,10 @@ services:
     ports:
       - 84:80
       - 447:443
-    hostname: dok.email
     networks:
       dok_network:
+        aliases: 
+          - dok.email
         ipv4_address: 172.20.0.14
     depends_on:
       - database
@@ -127,9 +132,10 @@ services:
     ports:
       - 85:80
       - 447:443
-    hostname: dok.seguros
     networks:
       dok_network:
+        aliases: 
+          - dok.seguros
         ipv4_address: 172.20.0.15
     depends_on:
       - database
