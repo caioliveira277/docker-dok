@@ -133,8 +133,7 @@ Agora que os containers estão rodando, devemos realizar as configurações espe
 
 4. Gerando estrutura do banco de dados:<br>
     [**SOMENTE AO PROJETO `DOK-SITE-NOVO`**]<br>
-    Execute o comando para subir estrutura de tabelas do banco e dados seeder
-    ```sh
+    Execute o comando para subir a estrutura de tabelas do banco e dados seeders necessárias
     php artisan migrate
     ```
     ```sh
@@ -150,7 +149,6 @@ Agora que os containers estão rodando, devemos realizar as configurações espe
     <br>
 
 6. Compilando **assets** do projeto:<br>
-    [**SOMENTE AOS PROJETOS `DOK-SITE-NOVO`, `DOK-CHECKOUT` E `DOK-PAINEL`**]<br>
     Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
     ```sh
     npm run watch
