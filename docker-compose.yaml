@@ -131,7 +131,7 @@ services:
       - .env
     ports:
       - 85:80
-      - 447:443
+      - 448:443
     networks:
       dok_network:
         aliases: 

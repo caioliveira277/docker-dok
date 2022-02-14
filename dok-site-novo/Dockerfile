@@ -1,9 +1,8 @@
 FROM php:7.2-apache
 
-USER root
-
 WORKDIR /var/www/html
 
+# Dependencias do servidor
 RUN apt-get update && apt-get install -y \
         libpng-dev \
         zlib1g-dev \
@@ -13,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         zip \
         curl \
         unzip \
+        sudo \
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
@@ -21,15 +21,28 @@ RUN apt-get update && apt-get install -y \
     && docker-php-source delete \
     && docker-php-ext-install soap
 
+# Configurando de host do apache
 COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.22
+# Aumentando a memória do PHP
+RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash \
+# Instalando composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.1.5
+
+# Instalando NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash \
     && apt-get install nodejs -y
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"
+# Configurando certificado SSL
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=dok.site"
 RUN a2enmod rewrite
 RUN a2ensite default-ssl
 RUN a2enmod ssl
-RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+RUN chmod -R 775  /etc/ssl
+
+# Configurando usuário
+RUN adduser --disabled-password --gecos '' dok-site
+RUN adduser dok-site sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER dok-site
