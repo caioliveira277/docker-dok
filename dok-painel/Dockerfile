@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
 COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf
 
 # Instalando composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.1.5
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.22
 
 # Instalando NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash \
