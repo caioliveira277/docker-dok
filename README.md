@@ -134,21 +134,12 @@ Agora que os containers estão rodando, devemos realizar as configurações espe
 4. Gerando estrutura do banco de dados:<br>
     [**SOMENTE AO PROJETO `DOK-SITE-NOVO`**]<br>
     Execute o comando para subir a estrutura de tabelas do banco e dados seeders necessárias
-    php artisan migrate
-    ```
     ```sh
-    php artisan db:seed
+    php artisan migrate --seed
     ```
     <br>
 
-5. Definindo permissão dos logs:<br>
-    Execute o comando para definir a permissão de escrita e leitura aos arquivos de logs do **laravel**
-    ```sh
-    chmod -R 777 /var/www/html/storage/
-    ```
-    <br>
-
-6. Compilando **assets** do projeto:<br>
+5. Compilando **assets** do projeto:<br>
     Execute o comando para deixar o servidor em modo `watch` para **compilar** os arquivos do projeto:
     ```sh
     npm run watch
