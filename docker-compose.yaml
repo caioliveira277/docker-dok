@@ -5,10 +5,10 @@ networks:
       config:
         - subnet: 172.20.0.0/24
 services:
-# início banco de dados
-  database:
+# início banco de dados mysql
+  database_mysql:
     image: mysql:5.7
-    container_name: database
+    container_name: database-mysql
     restart: always
     volumes:
       - .docker/mysql:/var/lib/mysql
@@ -18,8 +18,24 @@ services:
       - "3306:3306"
     networks:
       dok_network:
+        ipv4_address: 172.20.0.08
+# fim banco de dados mysql
+
+# início banco de dados mysql
+  database_redis:
+    image: redis:6.2.6
+    container_name: database-redis
+    restart: always
+    volumes:
+      - .docker/redis:/usr/local/etc/redis
+    env_file:
+      - .env
+    ports:
+      - "6379:6379"
+    networks:
+      dok_network:
         ipv4_address: 172.20.0.09
-# fim banco de dados
+# fim banco de dados mysql
 
 # início site
   dok_site_novo:
@@ -37,8 +53,6 @@ services:
         aliases: 
           - dok.site
         ipv4_address: 172.20.0.10
-    depends_on:
-      - database
 # fim site
 
 # início checkout
@@ -57,8 +71,6 @@ services:
         aliases: 
           - dok.checkout
         ipv4_address: 172.20.0.11
-    depends_on:
-      - database
 # fim checkout
 
 # início painel
@@ -77,8 +89,6 @@ services:
         aliases: 
           - dok.painel
         ipv4_address: 172.20.0.12
-    depends_on:
-      - database
 # fim painel
 
 # início consultas
@@ -97,8 +107,6 @@ services:
         aliases: 
           - dok.consultas
         ipv4_address: 172.20.0.13
-    depends_on:
-      - database
 # fim consultas
 
 # início email
@@ -117,8 +125,6 @@ services:
         aliases: 
           - dok.email
         ipv4_address: 172.20.0.14
-    depends_on:
-      - database
 # fim email
 
 # início seguros
@@ -137,6 +143,4 @@ services:
         aliases: 
           - dok.seguros
         ipv4_address: 172.20.0.15
-    depends_on:
-      - database
 # fim seguros
