@@ -1,5 +1,10 @@
 # **Docker-dok**
 ## Projetos **DOK Despachante** em ambiente **docker**
+<br>
+
+### **Aviso: ⚠**
+Esse é um projeto para ambiente de desenvolvimento. <br>
+Senhas, portas, domínios e IPs definidos aqui não tem quaisquer ligações com o ambiente de produção
 
 <br>
 <p float="left">
@@ -67,6 +72,10 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
 
     >Substitua os parametros de conexão do banco, para o representado abaixo:
     >```sh
+    >REDIS_HOST=${REDIS_HOST}
+    >REDIS_PASSWORD=null
+    >REDIS_PORT=${REDIS_PORT}
+
     >DB_HOST=${DB_HOST}
     >DB_PORT=${DB_PORT}
     >DB_DATABASE=${DB_DATABASE}
