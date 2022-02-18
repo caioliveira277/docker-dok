@@ -75,7 +75,6 @@ Abaixo estará as ferramentas necessárias para rodar o projeto
     >REDIS_HOST=${REDIS_HOST}
     >REDIS_PASSWORD=null
     >REDIS_PORT=${REDIS_PORT}
-
     >DB_HOST=${DB_HOST}
     >DB_PORT=${DB_PORT}
     >DB_DATABASE=${DB_DATABASE}
